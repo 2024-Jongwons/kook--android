@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_postFragment"
             app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/takingVideoFragment"
@@ -27,10 +30,28 @@
         <action
             android:id="@+id/action_profileFragment_to_postFragment"
             app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_voucherFragment"
+            app:destination="@id/voucherFragment" />
     </fragment>
     <fragment
         android:id="@+id/postFragment"
         android:name="com.hacker.thone.kook.ui.fragment.PostFragment"
         android:label="fragment_post"
         tools:layout="@layout/fragment_post" />
+    <fragment
+        android:id="@+id/challengeFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.ChallengeFragment"
+        android:label="fragment_challenge"
+        tools:layout="@layout/fragment_challenge" />
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.ShoppingFragment"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping" />
+    <fragment
+        android:id="@+id/voucherFragment"
+        android:name="com.hacker.thone.kook.VoucherFragment"
+        android:label="fragment_voucher"
+        tools:layout="@layout/fragment_voucher" />
 </navigation>
