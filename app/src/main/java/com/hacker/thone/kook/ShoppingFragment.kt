@@ -5,22 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.hacker.thone.kook.databinding.FragmentLoginBinding
-import com.hacker.thone.kook.databinding.FragmentMainBinding
+import com.hacker.thone.kook.databinding.FragmentShoppingBinding
 
-class MainFragment : Fragment() {
+class ShoppingFragment : Fragment() {
 
-    private var _binding: FragmentMainBinding? = null
+    private var _binding : FragmentShoppingBinding? = null
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+    ): View {
+        _binding = FragmentShoppingBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onDestroy() {

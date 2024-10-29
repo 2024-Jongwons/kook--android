@@ -1,22 +1,23 @@
-package com.hacker.thone.kook
+package com.hacker.thone.kook.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.hacker.thone.kook.databinding.FragmentTakingVideoBinding
+import androidx.fragment.app.Fragment
+import com.hacker.thone.kook.databinding.FragmentRegistBinding
 
-class TakingVideoFragment : Fragment() {
+class Register1Fragment : Fragment() {
 
-    private var _binding  : FragmentTakingVideoBinding? = null
+    private var _binding: FragmentRegistBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTakingVideoBinding.inflate(inflater, container, false)
+        _binding = FragmentRegistBinding.inflate(inflater, container, false)
         return binding.root
     }
 

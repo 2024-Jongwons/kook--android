@@ -1,4 +1,4 @@
-package com.hacker.thone.kook
+package com.hacker.thone.kook.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,8 +15,13 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

@@ -1,10 +1,8 @@
-package com.hacker.thone.kook
+package com.hacker.thone.kook.ui.activite
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.hacker.thone.kook.R
 import com.hacker.thone.kook.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

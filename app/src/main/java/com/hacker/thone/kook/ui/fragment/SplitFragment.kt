@@ -1,15 +1,15 @@
-package com.hacker.thone.kook
+package com.hacker.thone.kook.ui.fragment
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.hacker.thone.kook.databinding.FragmentRegistBinding
+import com.hacker.thone.kook.databinding.FragmentSplitBinding
 
-class Register1Fragment : Fragment() {
+class SplitFragment : Fragment() {
 
-    private var _binding: FragmentRegistBinding? = null
+    private var _binding: FragmentSplitBinding? = null
     private val binding get() = _binding!!
 
 
@@ -17,7 +17,7 @@ class Register1Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRegistBinding.inflate(inflater, container, false)
+        _binding = FragmentSplitBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -7,17 +7,30 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.hacker.thone.kook.MainFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+    </fragment>
     <fragment
         android:id="@+id/takingVideoFragment"
-        android:name="com.hacker.thone.kook.TakingVideoFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.TakingVideoFragment"
         android:label="fragment_taking_video"
         tools:layout="@layout/fragment_taking_video" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.hacker.thone.kook.ProfileFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" />
 </navigation>
