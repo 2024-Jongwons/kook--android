@@ -1,5 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="neonGreen">#A5FF15</color>
+    <color name="grayGray_100">#FCFCFC</color>
+    <color name="grayGray_200">#F1F1F3</color>
+    <color name="grayGray_300">#D4D4D5</color>
+    <color name="grayGray_400">#737478</color>
+    <color name="grayGray_500">#68686C</color>
+    <color name="grayGray_600">#5C5D60</color>
+    <color name="grayGray_700">#56575A</color>
+    <color name="grayGray_800">#454648</color>
+    <color name="grayGray_900">#232324</color>
+    <color name="grayGray_1000">#1A1B1C</color>
 </resources>
