@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.hacker.thone.kook.R
 import com.hacker.thone.kook.databinding.FragmentSplitBinding
 
 class SplitFragment : Fragment() {
@@ -18,6 +20,7 @@ class SplitFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSplitBinding.inflate(inflater, container, false)
+        findNavController().navigate(R.id.action_splitFragment_to_loginFragment)
         return binding.root
     }
 
