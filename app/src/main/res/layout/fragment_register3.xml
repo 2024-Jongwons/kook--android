@@ -20,6 +20,7 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         android:fontFamily="@font/pretendardsemibold"
+
         />
 
     <TextView
@@ -59,5 +60,46 @@
         android:textSize="24sp"
         android:fontFamily="@font/pretendardsemibold"
         />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:fontFamily="@font/pretendardregular"
+        android:text="Let's go log in"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/login_button"
+        app:layout_constraintStart_toStartOf="@+id/login_button"
+    app:layout_constraintEnd_toEndOf="@+id/login_button"
+        android:layout_marginBottom="12dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description_text"
+        android:text="Login"
+        android:textSize="16sp"
+        android:fontFamily="@font/pretendardsemibold"
+        android:textColor="@color/black"
+        android:background="@drawable/sp_login_button_background"
+        android:paddingVertical="18dp"
+        android:layout_marginTop="168dp"
+        />
+    
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="76dp"
+        android:src="@drawable/image1"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

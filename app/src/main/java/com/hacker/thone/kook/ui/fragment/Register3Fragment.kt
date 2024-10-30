@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.hacker.thone.kook.R
 import com.hacker.thone.kook.databinding.FragmentRegister3Binding
 
 class Register3Fragment : Fragment() {
@@ -16,6 +18,9 @@ class Register3Fragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentRegister3Binding.inflate(inflater, container, false)
+        binding.loginButton.setOnClickListener {
+            findNavController().navigate(R.id.action_register3Fragment_to_loginFragment)
+        }
         return binding.root
     }
 

@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.camera.core.CameraSelector
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.video.FileOutputOptions
@@ -21,7 +22,11 @@ import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.hacker.thone.kook.R
 import com.hacker.thone.kook.databinding.FragmentTakingVideoBinding
+import com.hacker.thone.kook.ui.viewModel.PostViewModel
 import com.hacker.thone.kook.util.BottomControllable
 import java.io.File
 import java.text.SimpleDateFormat
@@ -35,6 +40,7 @@ class TakingVideoFragment : Fragment() {
     private var videoCapture: VideoCapture<Recorder>? = null
     private var recording: Recording? = null
     private val CAMERA_PERMISSION_CODE = 999
+    private val postViewModel by activityViewModels<PostViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -94,8 +100,15 @@ class TakingVideoFragment : Fragment() {
 
     private fun startRecording() {
         Log.d("test", "in func")
+
+        // DCIM 폴더에 파일 저장 경로 설정
+        val dcimDirectory = File(requireContext().getExternalFilesDir(null)?.absolutePath + "/Pictures/kook")
+        if (!dcimDirectory.exists()) {
+            dcimDirectory.mkdirs()  // 폴더가 없으면 생성
+        }
+
         val videoFile = File(
-            requireContext().externalMediaDirs.firstOrNull(),
+            dcimDirectory,
             SimpleDateFormat(
                 "yyyy-MM-dd-HH-mm-ss-SSS",
                 Locale.US
@@ -124,13 +137,27 @@ class TakingVideoFragment : Fragment() {
                     }
 
                     is VideoRecordEvent.Finalize -> {
+                        if (!recordEvent.hasError()) {
+                            val msg = "영상 녹화 성공 : ${recordEvent.outputResults.outputUri}"
+                            Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+                            recording = null
+
+                            postViewModel.setUri(recordEvent.outputResults.outputUri)
+                            findNavController().navigate(R.id.action_takingVideoFragment_to_editVideoFragment)
+
+                            Log.d("CameraX", "Video saved: ${videoFile.absolutePath}")
+                            Log.e("CameraX", msg)
+                        } else {
+                            recording?.close()
+                            recording = null
+                            Log.e("CameraX", "영상 녹화 에러 : ${recordEvent.error}")
+                        }
                         binding.startRecordingButton.text = "Start Recording"
-                        recording = null
-                        Log.d("CameraX", "Video saved: ${videoFile.absolutePath}")
                     }
                 }
             }
     }
+
 
     private fun stopRecording() {
         recording?.stop()

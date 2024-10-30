@@ -22,7 +22,7 @@ class StartFragment : Fragment() {
         binding.signupButton.setOnClickListener{
             findNavController().navigate(R.id.action_startFragment_to_register1Fragment)
         }
-        binding.signupButton.setOnClickListener{
+        binding.loginButton.setOnClickListener{
             findNavController().navigate(R.id.action_startFragment_to_loginFragment)
         }
         return binding.root

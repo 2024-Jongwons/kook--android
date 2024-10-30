@@ -21,7 +21,11 @@
         android:id="@+id/takingVideoFragment"
         android:name="com.hacker.thone.kook.ui.fragment.TakingVideoFragment"
         android:label="fragment_taking_video"
-        tools:layout="@layout/fragment_taking_video" />
+        tools:layout="@layout/fragment_taking_video" >
+        <action
+            android:id="@+id/action_takingVideoFragment_to_editVideoFragment"
+            app:destination="@id/editVideoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.hacker.thone.kook.ui.fragment.ProfileFragment"
@@ -58,4 +62,9 @@
         android:name="com.hacker.thone.kook.ui.fragment.VoucherFragment"
         android:label="fragment_voucher"
         tools:layout="@layout/fragment_voucher" />
+    <fragment
+        android:id="@+id/editVideoFragment"
+        android:name="com.hacker.thone.kook.EditVideoFragment"
+        android:label="fragment_edit_video"
+        tools:layout="@layout/fragment_edit_video" />
 </navigation>

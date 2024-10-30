@@ -20,7 +20,7 @@ class SplitFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSplitBinding.inflate(inflater, container, false)
-        findNavController().navigate(R.id.action_splitFragment_to_loginFragment)
+        findNavController().navigate(R.id.action_splitFragment_to_startFragment)
         return binding.root
     }
 
