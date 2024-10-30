@@ -1,4 +1,4 @@
-package com.hacker.thone.kook
+package com.hacker.thone.kook.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

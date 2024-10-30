@@ -5,11 +5,9 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.video.FileOutputOptions
@@ -22,16 +20,16 @@ import androidx.camera.video.VideoRecordEvent
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.navigation.fragment.findNavController
-import com.hacker.thone.kook.R
+import androidx.fragment.app.Fragment
 import com.hacker.thone.kook.databinding.FragmentTakingVideoBinding
+import com.hacker.thone.kook.util.BottomControllable
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
 
 class TakingVideoFragment : Fragment() {
 
-    private var _binding  : FragmentTakingVideoBinding? = null
+    private var _binding: FragmentTakingVideoBinding? = null
     private val binding get() = _binding!!
     private lateinit var previewView: PreviewView
     private var videoCapture: VideoCapture<Recorder>? = null
@@ -43,6 +41,7 @@ class TakingVideoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentTakingVideoBinding.inflate(inflater, container, false)
+        (requireActivity() as BottomControllable).setBottomNavVisibility(false)
         previewView = binding.previewView
         checkingPermission()
 
@@ -62,74 +61,81 @@ class TakingVideoFragment : Fragment() {
         _binding = null
     }
 
+    override fun onPause() {
+        super.onPause()
+        (requireActivity() as BottomControllable).setBottomNavVisibility(true)
+    }
 
-
-private fun startCamera() {
-    val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
-    cameraProviderFuture.addListener({
-        val cameraProvider = cameraProviderFuture.get()
-        val preview = androidx.camera.core.Preview.Builder().build().also {
-            it.setSurfaceProvider(previewView.surfaceProvider)
-        }
-
-        val recorder = Recorder.Builder()
-            .setQualitySelector(QualitySelector.from(Quality.HIGHEST))
-            .build()
-        videoCapture = VideoCapture.withOutput(recorder)
-
-        val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-        try {
-            cameraProvider.unbindAll()
-            cameraProvider.bindToLifecycle(
-                this, cameraSelector, preview, videoCapture
-            )
-        } catch (e: Exception) {
-            Log.e("CameraX", "Error starting camera: ${e.message}")
-        }
-    }, ContextCompat.getMainExecutor(requireContext()))
-}
-
-private fun startRecording() {
-    Log.d("test", "in func")
-    val videoFile = File(
-        requireContext().externalMediaDirs.firstOrNull(),
-        SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.US).format(System.currentTimeMillis()) + ".mp4"
-    )
-
-    val outputOptions = FileOutputOptions.Builder(videoFile).build()
-    recording = videoCapture?.output
-        ?.prepareRecording(requireContext(), outputOptions)
-        ?.apply {
-            if (ActivityCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.RECORD_AUDIO
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-               Log.d("test", "link")
-                checkingPermission()
-                return
+    private fun startCamera() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+        cameraProviderFuture.addListener({
+            val cameraProvider = cameraProviderFuture.get()
+            val preview = androidx.camera.core.Preview.Builder().build().also {
+                it.setSurfaceProvider(previewView.surfaceProvider)
             }
-            withAudioEnabled()
-        }
-        ?.start(ContextCompat.getMainExecutor(requireContext())) { recordEvent ->
-            when (recordEvent) {
-                is VideoRecordEvent.Start -> {
-                    binding.startRecordingButton.text = "Stop Recording"
+
+            val recorder = Recorder.Builder()
+                .setQualitySelector(QualitySelector.from(Quality.HIGHEST))
+                .build()
+            videoCapture = VideoCapture.withOutput(recorder)
+
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
+            try {
+                cameraProvider.unbindAll()
+                cameraProvider.bindToLifecycle(
+                    this, cameraSelector, preview, videoCapture
+                )
+            } catch (e: Exception) {
+                Log.e("CameraX", "Error starting camera: ${e.message}")
+            }
+        }, ContextCompat.getMainExecutor(requireContext()))
+    }
+
+    private fun startRecording() {
+        Log.d("test", "in func")
+        val videoFile = File(
+            requireContext().externalMediaDirs.firstOrNull(),
+            SimpleDateFormat(
+                "yyyy-MM-dd-HH-mm-ss-SSS",
+                Locale.US
+            ).format(System.currentTimeMillis()) + ".mp4"
+        )
+
+        val outputOptions = FileOutputOptions.Builder(videoFile).build()
+        recording = videoCapture?.output
+            ?.prepareRecording(requireContext(), outputOptions)
+            ?.apply {
+                if (ActivityCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.RECORD_AUDIO
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    Log.d("test", "link")
+                    checkingPermission()
+                    return
                 }
-                is VideoRecordEvent.Finalize -> {
-                    binding.startRecordingButton.text = "Start Recording"
-                    recording = null
-                    Log.d("CameraX", "Video saved: ${videoFile.absolutePath}")
+                withAudioEnabled()
+            }
+            ?.start(ContextCompat.getMainExecutor(requireContext())) { recordEvent ->
+                when (recordEvent) {
+                    is VideoRecordEvent.Start -> {
+                        binding.startRecordingButton.text = "Stop Recording"
+                    }
+
+                    is VideoRecordEvent.Finalize -> {
+                        binding.startRecordingButton.text = "Start Recording"
+                        recording = null
+                        Log.d("CameraX", "Video saved: ${videoFile.absolutePath}")
+                    }
                 }
             }
-        }
-}
+    }
 
-private fun stopRecording() {
-    recording?.stop()
-    recording = null
-}
+    private fun stopRecording() {
+        recording?.stop()
+        recording = null
+    }
 
     private fun checkingPermission() {
         val permissions = mutableListOf<String>()
@@ -169,5 +175,4 @@ private fun stopRecording() {
             startCamera()
         }
     }
-
 }

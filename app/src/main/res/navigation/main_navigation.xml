@@ -51,7 +51,7 @@
         tools:layout="@layout/fragment_shopping" />
     <fragment
         android:id="@+id/voucherFragment"
-        android:name="com.hacker.thone.kook.VoucherFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.VoucherFragment"
         android:label="fragment_voucher"
         tools:layout="@layout/fragment_voucher" />
 </navigation>

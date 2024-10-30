@@ -59,6 +59,7 @@ dependencies {
     //media / swipe
     implementation (libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.media3.exoplayer)
+    implementation("com.google.android.exoplayer:exoplayer:2.18.1")
 
     implementation(libs.retrofit)
     implementation(libs.androidx.core.ktx)
