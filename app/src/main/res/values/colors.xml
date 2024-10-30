@@ -13,4 +13,5 @@
     <color name="grayGray_800">#454648</color>
     <color name="grayGray_900">#232324</color>
     <color name="grayGray_1000">#1A1B1C</color>
+    <color name="invisible">#00000000</color>
 </resources>

@@ -1,28 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/grayGray_1000"
     tools:context=".ui.fragment.MainFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/profile_button"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/search_edi_text"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/sp_back_ground_edit_text"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
+                android:hint="search"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="9dp"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grayGray_400"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_button"
+                app:layout_constraintEnd_toStartOf="@+id/profile_button"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profile_button" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/profile_button"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/invisible"
+                android:src="@drawable/ic_profile"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/banner_image"
+                android:layout_width="match_parent"
+                android:layout_height="216dp"
+                android:layout_marginTop="21dp"
+                app:layout_constraintTop_toBottomOf="@id/profile_button"
+                android:src="@drawable/banner1"
+                android:scaleType="centerInside"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/vegetarian_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="16dp"
+                app:layout_constraintTop_toBottomOf="@id/banner_image">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/up_arrow_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/up_arrow_image"
+                        android:layout_width="39dp"
+                        android:layout_height="39dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_up_arrow"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/up_arrow_title_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/pretendardmedium"
+                        android:text="vegetarian"
+                        android:textColor="@color/grayGray_200"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/up_arrow_image"
+                        app:layout_constraintTop_toTopOf="@id/up_arrow_image" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/pretendardmedium"
+                        android:text="Trending Hashtags"
+                        android:textColor="@color/grayGray_400"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/up_arrow_image"
+                        app:layout_constraintTop_toBottomOf="@id/up_arrow_title_text" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/up_arrow_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/up_arrow_layout" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/buldak_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="16dp"
+                app:layout_constraintTop_toBottomOf="@id/vegetarian_layout">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/buldak_title_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/buldak_image"
+                        android:layout_width="39dp"
+                        android:layout_height="39dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/buldak_title_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/pretendardmedium"
+                        android:text="Buldak"
+                        android:textColor="@color/grayGray_200"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@id/buldak_image"
+                        app:layout_constraintTop_toTopOf="@id/buldak_image" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/pretendardmedium"
+                        android:text="Hashtags of interest to me"
+                        android:textColor="@color/grayGray_400"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/buldak_image"
+                        app:layout_constraintTop_toBottomOf="@id/buldak_title_text" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/buldak_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/buldak_title_layout" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
