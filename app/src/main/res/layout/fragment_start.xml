@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.StartFragment"
+    android:background="@color/grayGray_1000">
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="155dp"
+        android:layout_marginStart="32dp"
+        android:text="Welcome to"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/pretendardsemibold"
+        />
+    <TextView
+    android:id="@+id/title_text1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toEndOf="@id/title_text"
+    android:layout_marginTop="155dp"
+    android:text=" Kook!"
+    android:textColor="@color/neonGreen"
+    android:textSize="24sp"
+    android:fontFamily="@font/pretendardsemibold"
+    />
+
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="32dp"
+        android:text="Are you ready to fall in love with the charm of \nvarious Korean foods?"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:fontFamily="@font/pretendardregular"
+        />
+    
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description_text"
+        android:text="Login"
+        android:textSize="16sp"
+        android:fontFamily="@font/pretendardsemibold"
+        android:textColor="@color/black"
+        android:background="@drawable/sp_login_button_background"
+        android:paddingVertical="18dp"
+        android:layout_marginTop="135dp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signup_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+        android:text="Sign up"
+        android:textSize="16sp"
+        android:fontFamily="@font/pretendardsemibold"
+        android:textColor="@color/neonGreen"
+        android:background="@drawable/sp_signup_button_background"
+        android:paddingVertical="18dp"
+        android:layout_marginTop="12dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

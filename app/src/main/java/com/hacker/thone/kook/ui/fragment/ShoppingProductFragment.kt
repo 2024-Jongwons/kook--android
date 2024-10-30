@@ -1,6 +1,7 @@
 package com.hacker.thone.kook.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,9 +28,11 @@ class ShoppingProductFragment : Fragment() {
             requireActivity().supportFragmentManager.popBackStack()
         }
         shoppingViewModel.selectProduct.observe(viewLifecycleOwner){
+            Log.d("test", "it : $it")
+            binding.voucherName.text = "[${it.companyData?.name}] ${it.name}"
             binding.productImage.setImageResource(it.image ?: R.drawable.logo   )
             binding.voucherPoint.text = formatNumberWithComma(it.point ?: 0)
-            binding.companyText
+            binding.companyText.text = it.companyData?.name
         }
 
         return binding.root

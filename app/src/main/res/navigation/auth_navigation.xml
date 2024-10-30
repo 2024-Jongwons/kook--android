@@ -11,8 +11,8 @@
         android:label="fragment_split"
         tools:layout="@layout/fragment_split" >
         <action
-            android:id="@+id/action_splitFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_splitFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -29,7 +29,37 @@
         android:label="fragment_regist"
         tools:layout="@layout/fragment_regist" >
         <action
-            android:id="@+id/action_register1Fragment_to_loginFragment"
+            android:id="@+id/action_register1Fragment_to_register2Fragment"
+            app:destination="@id/register2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_register1Fragment"
+            app:destination="@id/register1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register2Fragment"
+        android:name="com.hacker.thone.kook.ui.fragment.Register2Fragment"
+        android:label="fragment_register2"
+        tools:layout="@layout/fragment_register2" >
+        <action
+            android:id="@+id/action_register2Fragment_to_register3Fragment"
+            app:destination="@id/register3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register3Fragment"
+        android:name="com.hacker.thone.kook.ui.fragment.Register3Fragment"
+        android:label="fragment_register3"
+        tools:layout="@layout/fragment_register3" >
+        <action
+            android:id="@+id/action_register3Fragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
 </navigation>
