@@ -12,21 +12,24 @@ import com.hacker.thone.kook.databinding.FragmentMainBinding
 import com.hacker.thone.kook.ui.adapter.reels.SmallReelsAdapter
 import com.hacker.thone.kook.ui.decoration.reels.SmallReelsDecoration
 import com.hacker.thone.kook.ui.viewModel.MainViewModel
+import com.hacker.thone.kook.ui.viewModel.PostViewModel
 
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val mainViewModel by activityViewModels<MainViewModel>()
+    private val postViewModel by activityViewModels<PostViewModel>()
+
     private val testList = listOf(
-        "https://khtback.s3.ap-northeast-2.amazonaws.com/f91a8928-4669-42e4-9d73-81f76c5012d6.mov",
-        "https://khtback.s3.ap-northeast-2.amazonaws.com/f91a8928-4669-42e4-9d73-81f76c5012d6.mov",
-        "https://khtback.s3.ap-northeast-2.amazonaws.com/f91a8928-4669-42e4-9d73-81f76c5012d6.mov",
-        "https://khtback.s3.ap-northeast-2.amazonaws.com/f91a8928-4669-42e4-9d73-81f76c5012d6.mov",
-        "https://khtback.s3.ap-northeast-2.amazonaws.com/f91a8928-4669-42e4-9d73-81f76c5012d6.mov",
-        "https://khtback.s3.ap-northeast-2.amazonaws.com/f91a8928-4669-42e4-9d73-81f76c5012d6.mov",
-        "https://khtback.s3.ap-northeast-2.amazonaws.com/f91a8928-4669-42e4-9d73-81f76c5012d6.mov",
-        "https://khtback.s3.ap-northeast-2.amazonaws.com/f91a8928-4669-42e4-9d73-81f76c5012d6.mov"
+        "https://khtback.s3.ap-northeast-2.amazonaws.com/Cheesy+Spicy+Noodles+Rice+Paper+Combo's+%23food+%23buldak.mp4",
+        "https://khtback.s3.ap-northeast-2.amazonaws.com/Cheesy+Spicy+Noodles+Rice+Paper+Combo's+%23food+%23buldak.mp4",
+        "https://khtback.s3.ap-northeast-2.amazonaws.com/Cheesy+Spicy+Noodles+Rice+Paper+Combo's+%23food+%23buldak.mp4",
+        "https://khtback.s3.ap-northeast-2.amazonaws.com/Cheesy+Spicy+Noodles+Rice+Paper+Combo's+%23food+%23buldak.mp4",
+        "https://khtback.s3.ap-northeast-2.amazonaws.com/Cheesy+Spicy+Noodles+Rice+Paper+Combo's+%23food+%23buldak.mp4",
+        "https://khtback.s3.ap-northeast-2.amazonaws.com/Cheesy+Spicy+Noodles+Rice+Paper+Combo's+%23food+%23buldak.mp4",
+        "https://khtback.s3.ap-northeast-2.amazonaws.com/Cheesy+Spicy+Noodles+Rice+Paper+Combo's+%23food+%23buldak.mp4",
+        "https://khtback.s3.ap-northeast-2.amazonaws.com/Cheesy+Spicy+Noodles+Rice+Paper+Combo's+%23food+%23buldak.mp4"
     )
 
     override fun onCreateView(
@@ -48,7 +51,8 @@ class MainFragment : Fragment() {
             reelsList =  testList,
             context = requireContext()
         ){
-
+            postViewModel.setReelsList(testList)
+            findNavController().navigate(R.id.action_mainFragment_to_postFragment)
         }
         smallReelsAdapter.notifyItemRemoved(0)
 
