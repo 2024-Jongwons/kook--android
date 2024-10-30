@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.Register3Fragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.Register3Fragment"
+    android:background="@color/grayGray_1000">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="158dp"
 
-</FrameLayout>
+        android:text="Membership registration"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/pretendardsemibold"
+        />
+
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        app:layout_constraintStart_toStartOf="@+id/title_text"
+        app:layout_constraintEnd_toStartOf="@id/description_text1"
+        android:text="has been "
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/pretendardsemibold"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        />
+    <TextView
+        android:id="@+id/description_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        app:layout_constraintEnd_toStartOf="@id/description_text2"
+        app:layout_constraintStart_toEndOf="@+id/description_text"
+        android:text="completed"
+        android:textColor="@color/neonGreen"
+        android:textSize="24sp"
+        android:fontFamily="@font/pretendardsemibold"
+        />
+    <TextView
+        android:id="@+id/description_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        app:layout_constraintEnd_toEndOf="@+id/title_text"
+        app:layout_constraintStart_toEndOf="@+id/description_text1"
+        android:text="!"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/pretendardsemibold"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
