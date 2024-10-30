@@ -29,6 +29,7 @@
                 android:drawablePadding="6dp"
                 android:gravity="center_vertical"
                 android:hint="search"
+                android:singleLine="true"
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="9dp"
                 android:textAlignment="gravity"

@@ -191,8 +191,10 @@
                 app:tabIndicatorColor="@color/white"
                 />
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/post_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/tab_layout"
                 app:spanCount="3"
                 />

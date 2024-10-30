@@ -16,7 +16,9 @@ class ReelsAdapter(
     private var exoPlayer: ExoPlayer? = null
 
     init {
-        exoPlayer = ExoPlayer.Builder(context).build()
+        exoPlayer = ExoPlayer.Builder(context).build().apply {
+            repeatMode = ExoPlayer.REPEAT_MODE_ONE
+        }
     }
 
     inner class RealsPagerViewHolder(val binding: ItemReelsBinding) :
@@ -59,7 +61,6 @@ class ReelsAdapter(
     override fun getItemCount(): Int = reelsList.size
 
     override fun onBindViewHolder(holder: RealsPagerViewHolder, position: Int) {
-        Log.d("test", "in holder")
         holder.bind(reelsList[position])
     }
 

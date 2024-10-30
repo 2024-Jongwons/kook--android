@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import com.hacker.thone.kook.R
 import com.hacker.thone.kook.databinding.FragmentShoppingProductBinding
+import com.hacker.thone.kook.ui.viewModel.ShoppingViewModel
+import com.hacker.thone.kook.util.formatNumberWithComma
 
 class ShoppingProductFragment : Fragment() {
 
     private var _binding : FragmentShoppingProductBinding? = null
     private val binding get() = _binding!!
+    private val shoppingViewModel by activityViewModels<ShoppingViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,6 +25,11 @@ class ShoppingProductFragment : Fragment() {
 
         binding.backArrowImage.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
+        }
+        shoppingViewModel.selectProduct.observe(viewLifecycleOwner){
+            binding.productImage.setImageResource(it.image ?: R.drawable.logo   )
+            binding.voucherPoint.text = formatNumberWithComma(it.point ?: 0)
+            binding.companyText
         }
 
         return binding.root

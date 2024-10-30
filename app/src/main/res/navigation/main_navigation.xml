@@ -48,7 +48,11 @@
         android:id="@+id/shoppingFragment"
         android:name="com.hacker.thone.kook.ui.fragment.ShoppingFragment"
         android:label="fragment_shopping"
-        tools:layout="@layout/fragment_shopping" />
+        tools:layout="@layout/fragment_shopping" >
+        <action
+            android:id="@+id/action_shoppingFragment_to_shoppingProductFragment"
+            app:destination="@id/shoppingProductFragment" />
+    </fragment>
     <fragment
         android:id="@+id/voucherFragment"
         android:name="com.hacker.thone.kook.ui.fragment.VoucherFragment"
