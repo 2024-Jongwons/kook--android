@@ -1,14 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.PostFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.PostFragment"
+    android:background=""
+    >
+    
+    <com.google.android.exoplayer2.ui.PlayerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:use_controller="false"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🅟 +30"
+        android:fontFamily="@font/pretendardmedium"
+        android:textSize="12sp"
+        android:background="@drawable/sp_point_text_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingVertical="2dp"
+        android:paddingHorizontal="8dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="16dp"
+        />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/heart_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/comment_button"
+        android:layout_marginEnd="20dp"
+        android:clickable="true"
+        >
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/heart_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_empty_heart"
+            android:background="@color/invisible"
+            android:tint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="45dp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/heart_icon"
+            android:textSize="10dp"
+            android:text="1004"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendardsemibold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/comment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/user_info_layout"
+        android:layout_marginBottom="45dp"
+        android:layout_marginEnd="20dp"
+        android:clickable="true"
+        >
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/comment_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_comment"
+            android:background="@color/invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="45dp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/comment_icon"
+            android:textSize="10dp"
+            android:text="1004"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendardsemibold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/user_info_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tag_chip_group"
+        android:layout_marginStart="12dp"
+        android:clickable="true"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/profile_image"
+            app:layout_constraintBottom_toBottomOf="@id/profile_image"
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            android:text="Nickname"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendardmedium"
+            android:textSize="12sp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <TextView
+        android:id="@+id/music_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="2dp"
+        android:paddingHorizontal="8dp"
+        android:text="Mantra - 제니 (Jenni)"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:fontFamily="@font/pretendardmedium"
+        android:background="@drawable/sp_oprcity_bacground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="23dp"
+        />
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/tag_chip_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/music_text"
+        android:layout_marginBottom="2dp"
+        app:chipSpacingHorizontal="12dp"
+        android:layout_marginHorizontal="23dp"
+        >
+<!--        <com.google.android.material.chip.Chip-->
+<!--            style="@style/reels_chip_tag"-->
+<!--            android:text="# Buldak "-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/invisible"-->
+<!--            />-->
+<!--        <com.google.android.material.chip.Chip-->
+<!--            style="@style/reels_chip_tag"-->
+<!--            android:text="# ricepaper"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/invisible"-->
+<!--            />-->
+    </com.google.android.material.chip.ChipGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

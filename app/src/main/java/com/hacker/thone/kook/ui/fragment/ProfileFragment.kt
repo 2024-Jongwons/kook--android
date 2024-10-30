@@ -6,21 +6,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.hacker.thone.kook.R
 import com.hacker.thone.kook.databinding.FragmentProfileBinding
+import com.hacker.thone.kook.ui.viewModel.MainViewModel
+import com.hacker.thone.kook.ui.viewModel.UserViewModel
 
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+    private val userViewModel by activityViewModels<UserViewModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-
         initProfileView()
+        userViewModel.userPoint.observe(viewLifecycleOwner){
+            binding.voucherPointText.text = it.toString()
+        }
 
         return binding.root
     }

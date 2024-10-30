@@ -7,8 +7,6 @@
         <item name="chipStrokeColor">@color/neonGreen</item>
         <item name="chipBackgroundColor">@color/grayGray_1000</item>
         <item name="android:textSize">12sp</item>
-        <item name="chipEndPadding">3dp</item>
-        <item name="chipStartPadding">3dp</item>
         <item name="chipMinHeight">23dp</item>
         <item name="ensureMinTouchTargetSize">false</item>
     </style>

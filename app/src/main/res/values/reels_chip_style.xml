@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="reels_chip_tag" parent="ShapeAppearanceOverlay.Material3.Chip">
+        <item name="android:textColor">@color/white</item>
+        <item name="chipCornerRadius">100dp</item>
+        <item name="chipStrokeColor">@color/invisible</item>
+        <item name="chipBackgroundColor">@color/invisible</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/pretendardregular</item>
+        <item name="android:backgroundTint">@color/invisible</item>
+        <item name="chipEndPadding">3dp</item>
+        <item name="chipStartPadding">3dp</item>
+        <item name="chipMinHeight">23dp</item>
+        <item name="textStartPadding">0dp</item>
+        <item name="textEndPadding">0dp</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+</resources>
