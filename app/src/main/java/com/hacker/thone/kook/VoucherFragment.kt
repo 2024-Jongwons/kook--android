@@ -17,6 +17,11 @@ class VoucherFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentVoucherBinding.inflate(inflater, container, false)
+
+        binding.backArrowImage.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+
         return binding.root
     }
 }

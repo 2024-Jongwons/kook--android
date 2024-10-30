@@ -5,18 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.hacker.thone.kook.databinding.FragmentChallengeBinding
+import com.hacker.thone.kook.databinding.FragmentShoppingProductBinding
 
-class ChallengeFragment : Fragment() {
+class ShoppingProductFragment : Fragment() {
 
-    private var _binding : FragmentChallengeBinding? = null
+    private var _binding : FragmentShoppingProductBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentChallengeBinding.inflate(inflater, container, false)
+        _binding = FragmentShoppingProductBinding.inflate(inflater, container, false)
+
+        binding.backArrowImage.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+
         return binding.root
     }
 

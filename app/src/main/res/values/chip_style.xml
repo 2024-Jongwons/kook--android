@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="chip_tag" parent="ShapeAppearanceOverlay.Material3.Chip">
+        <item name="android:textColor">@color/neonGreen</item>
+        <item name="chipCornerRadius">100dp</item>
+        <item name="chipStrokeColor">@color/neonGreen</item>
+        <item name="chipBackgroundColor">@color/grayGray_1000</item>
+        <item name="android:textSize">12sp</item>
+        <item name="chipEndPadding">3dp</item>
+        <item name="chipStartPadding">3dp</item>
+        <item name="chipMinHeight">23dp</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+</resources>

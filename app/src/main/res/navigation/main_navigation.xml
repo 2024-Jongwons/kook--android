@@ -40,10 +40,10 @@
         android:label="fragment_post"
         tools:layout="@layout/fragment_post" />
     <fragment
-        android:id="@+id/challengeFragment"
-        android:name="com.hacker.thone.kook.ui.fragment.ChallengeFragment"
+        android:id="@+id/shoppingProductFragment"
+        android:name="com.hacker.thone.kook.ui.fragment.ShoppingProductFragment"
         android:label="fragment_challenge"
-        tools:layout="@layout/fragment_challenge" />
+        tools:layout="@layout/fragment_shopping_product" />
     <fragment
         android:id="@+id/shoppingFragment"
         android:name="com.hacker.thone.kook.ui.fragment.ShoppingFragment"
